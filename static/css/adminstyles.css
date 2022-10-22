@@ -1,0 +1,36 @@
+.container{
+    margin: auto;
+    margin-top: 10%;
+    
+}
+.category{
+    position: relative;
+}
+.card-catogary{
+    width: 200px;
+    height: 100px;
+    background-color:#D19C97 ;
+    display: block;
+    text-align: center;
+    color: black;
+}
+.dropdown{
+    position: absolute;
+    display: none;
+}
+.catogary:hover.dropdown{
+    display: block;
+}
+.card-catogary:hover{
+    background-color: antiquewhite;
+}
+
+.cont{
+    margin: auto;
+    margin-top: 10%;
+    border: .5px solid  burlywood;
+    width: 500px;
+    height: auto;
+    text-align: center;
+
+}

@@ -1,0 +1,56 @@
+{% extends 'admin.html'%}
+
+{% block content %}
+<style>
+    h4{
+        display:inline;
+    }
+    .btn{
+        padding:10px;
+        background-color: yellow;
+        color:white;
+    }
+    .p_container{
+        background-color: rgb(240, 207, 207);
+        margin-top: 50px;
+        margin-left: 20vw;
+        width: 60vw;
+        padding: 30px;
+    }
+    table{
+        width: 50vw;
+    }
+    td,th{
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+{% for message in messages%}
+
+<h1 style="color:red;">{{message}}</h1>
+
+{% endfor%}
+<div class="p_container">
+    <table border="1">
+        <tr>
+            <th>Prouct ID</th>
+            <th>Prouct Name</th>
+            <th>Prouct Price</th>
+            <th>Prouct Cateogory</th>
+        </tr>
+        {% for product in products%}
+        
+        <tr>
+            <td>{{product.Product_ID}}</td>
+            <td>{{product.Product_Name}}</td>
+            <td>{{product.Product_Price}}</td>
+            <td>{{product.Product_Catogary}}</td>
+            
+        </tr>
+        
+        
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+

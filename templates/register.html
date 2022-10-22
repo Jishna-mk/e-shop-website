@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+<style>
+    .container{
+        margin: auto;
+        width:500px;
+        height: 500px;
+        position: absolute;
+        border: .5px solid gray;
+    }
+</style>
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+    <h3 style="color:red">{{message}}</h3>
+    {% endfor %}
+<h3>Registration</h3>
+<form method="post">
+    {% csrf_token %}
+    <br>
+    {% for field in form  %}
+    <br> 
+    {{field.label}}: <br>
+      {{field}}
+    {% endfor %}
+    <br><br><button type="submit">Register</button>
+</form>
+<h5>Please <a href="{%url 'Signin'%}">Login</a>  </h5>
+</div>
+{% endblock %}

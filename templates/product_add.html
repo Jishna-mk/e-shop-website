@@ -1,0 +1,17 @@
+{% extends 'admin.html' %}
+{% block content %}
+<div class="cont">
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {%endfor%}
+    <h3>Add Product</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form%}
+        <br>
+        {{field.label}}: {{field}} <br>
+        {% endfor %}<br><br>
+        <button type="submit">Add Product</button>
+</form>
+</div>
+{% endblock%}

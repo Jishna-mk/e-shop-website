@@ -1,0 +1,28 @@
+{% extends 'admin.html'%}
+
+{% block content %}
+<style>
+    h4{
+        display:inline;
+    }
+    .btn{
+        padding:10px;
+        background-color: yellow;
+        color:white;
+    }
+</style>
+{% for message in messages%}
+
+<h1 style="color:red;">{{message}}</h1>
+
+{% endfor%}
+{% for product in products%}
+<form method="post">
+    {% csrf_token %}
+
+<h4>{{product.Product_Name}}</h4>
+<button type="submit" name="id" value="{{product.Product_ID}}">Delete</button>
+<a href="{%url 'delete_item' product.Product_ID %}">Delete item</a><br><br>
+</form>
+{% endfor %}
+{% endblock %}

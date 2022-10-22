@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+<style>
+    .container{
+        margin: auto;
+        width:500px;
+        height: 500px;
+        position: absolute;
+        border: .5px solid gray;
+    }
+</style>
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+    <h3 style="color:green">{{message}}</h3>
+    {% endfor %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="uname" placeholder="Enter Username">
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+    <h5>dont have an Account Click <a href="{%url 'Signup'%}">Here</a></h5>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'admin.html' %}
+{% block content %}
+<div class="cont">
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {%endfor%}
+    <h3>Update Product</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+       <!-- <input type="hidden" readonly name="Product_ID" value="{{product.Product_ID}}"><br> -->
+       <label for="">Product Name</label>
+       <input type="text" name="Product_Name" value="{{product.Product_Name}}"><br>
+       <label for="">Product Category</label>
+       <input type="text" name="Product_Catogary" value="{{product.Product_Catogary}}"><br>
+       <label for="">Product Discription</label>
+       <input type="text" name="Product_Discription" value="{{product.Product_Discription}}"><br>
+       <label for="">Product price</label>
+       <input type="text" name="Product_Price" value="{{product.Product_Price}}"><br>
+
+
+
+        <button type="submit">Update Product</button>
+</form>
+</div>
+{% endblock%}

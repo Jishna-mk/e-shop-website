@@ -1,0 +1,172 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{%static '\css\adminstyles.css' %}" />
+      <link href="{%static 'img/favicon.ico' %}" rel="icon" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+
+      <!-- Font Awesome -->
+      <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        rel="stylesheet"
+      />
+
+      <!-- Libraries Stylesheet -->
+      <link
+        href="{%static 'lib/owlcarousel/assets/owl.carousel.min.css' %}"
+        rel="stylesheet"
+      />
+
+      <!-- Customized Bootstrap Stylesheet -->
+      <link href="{%static 'css/style.css' %}" rel="stylesheet" />
+      <link rel="stylesheet" href="{%static 'css/adminstyles.css'%}" />
+      <title>E-shope Admin</title>
+    </head>
+
+    <body>
+      <!-- Topbar Start -->
+      <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-xl-5">
+          <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center">
+              <a class="text-dark" href="">FAQs</a>
+              <span class="text-muted px-2">|</span>
+              <a class="text-dark" href="">Help</a>
+              <span class="text-muted px-2">|</span>
+              <a class="text-dark" href="">Support</a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+              <a class="text-dark px-2" href="">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="text-dark px-2" href="">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="text-dark px-2" href="">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a class="text-dark px-2" href="">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="text-dark pl-2" href="">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center py-3 px-xl-5">
+          <div class="col-lg-3 d-none d-lg-block">
+            <a href="{%url 'adminscreen'%}" class="text-decoration-none">
+              <h1 class="m-0 display-5 font-weight-semi-bold">
+                <span class="text-primary font-weight-bold border px-3 mr-1"
+                  >E</span
+                >Shopper
+              </h1>
+            </a>
+          </div>
+          <div class="col-lg-6 col-6 text-left">
+            <form action="">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search for products"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text bg-transparent text-primary">
+                    <i class="fa fa-search"></i>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-3 col-6 text-right">
+            <a href="" class="btn border">
+              <i class="fas fa-heart text-primary"></i>
+              <span class="badge">0</span>
+            </a>
+            <a href="" class="btn border">
+              <i class="fas fa-shopping-cart text-primary"></i>
+              <span class="badge">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Topbar End -->
+      <style>
+        .container {
+          display: flex;
+          width: 60vw;
+          flex-wrap: wrap;
+          justify-content: space-around;
+        }
+        .card-catogary{
+            width: 25vw;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 1s;
+        }
+        .card-catogary:hover{
+            transform: scale(1.1);
+        }
+        .second-nav{
+            background-color: rgb(233, 196, 196);
+            display: flex;
+            justify-content: flex-end;
+            width: 15vw;
+            margin-left: 80vw;
+        }
+      </style>
+      {% block content %} {% if request.user.is_authenticated %}
+      <div class="second-nav">
+
+          <a href="#" class="nav-item nav-link">{{request.user.first_name}}</a>
+          <a href="{%url 'signout'%}" class="nav-item nav-link">Logout</a>
+        </div>
+      {% else %}
+
+      <a href="{%url 'Signin'%}" class="nav-item nav-link">Login</a>
+      <a href="{%url 'Signup'%}" class="nav-item nav-link">Register</a>
+      {% endif %}
+     
+
+      <!-- admin options    -->
+
+      <div class="container">
+        <a href="{%url 'products' %}">
+          <div class="card-catogary">
+            <h3>Products</h3>
+          </div>
+        </a>
+        <div class="card-catogary">
+          <h3>Customers</h3>
+        </div>
+        <div class="card-catogary">
+          <h3>Merchents</h3>
+        </div>
+        <div class="card-catogary">
+          <h3>Orders</h3>
+        </div>
+      </div>
+      {% endblock %}
+    </body>
+  </head>
+</html>
